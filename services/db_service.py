@@ -8,7 +8,7 @@ db = None
 def initialize_db():
     """Initialize database connection."""
     global client, db
-    client = MongoClient(config.MONGODB_URI)
+    client = MongoClient(config.MONGODB_URI, tlsAllowInvalidCertificates=True)
     db = client[config.DATABASE_NAME]
     return db
 
